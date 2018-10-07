@@ -1,6 +1,5 @@
 <template>
   <div class="people-display">
-    <p> this is the people display!! </p>
     <div class="card" v-for="person in people" v-bind:key="person.id">
       <div class="identity">
         <h3> Name </h3>
@@ -88,6 +87,12 @@ p {
   padding-left: 10px;
   padding-right: 10px;
   border: 1px dotted green;
+}
+.typo__label {
+  border: 1px solid red;
+}
+.form__label {
+  border: 1px solid blue;
 }
 
 </style>
