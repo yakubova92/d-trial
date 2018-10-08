@@ -1,6 +1,6 @@
 <template>
   <div class="people-display">
-    <div class="card" v-for="person in people" v-bind:key="person.id">
+    <div class="card" v-for="person in filterPeople" v-bind:key="person.id">
       <div class="identity">
         <h3> Name </h3>
         <p>{{ person.first }} {{ person.last }} </p>
@@ -20,15 +20,15 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'PeopleDisplay',
   components: {
   },
   computed: {
-    ...mapState([
-      'people'
+    ...mapGetters([
+      'filterPeople'
     ]),
   },
   methods: {
