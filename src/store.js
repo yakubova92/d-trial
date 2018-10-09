@@ -13,7 +13,7 @@ export default new Vuex.Store({
       {id: 5, first: 'Tyrion', last: 'Lannister', email: 'tlannister@gmail.com', role: 'Arranger', status: 'Active', group: 'Executives'},
       {id: 6, first: 'Arya', last: 'Stark', email: 'astark@gmail.com', role: 'Traveler', status: 'Active', group: 'Staff'},
       {id: 7, first: 'Theon', last: 'Greyjoy', email: 'jdoe@gmail.com', role: 'Traveler', status: 'Active', group: 'Staff'},
-      {id: 8, first: 'Khal', last: 'Drogo', email: 'kdrogo@gmail.com', role: 'Administrator', status: 'Pending', group: 'Executives'},
+      {id: 8, first: 'Khal', last: 'Drogo', email: 'kdrogo@gmail.com', role: 'Administrator', status: 'Active', group: 'Executives'},
     ],
     sortBy: '',
     filterBy: {
@@ -40,11 +40,20 @@ export default new Vuex.Store({
           if (state.filterBy.group.indexOf(person.group) !== -1) return person
         })
       }
+      // add sorting logic here
       return people;
     }
   },
   mutations: {
-
+    APPLY_FILTER: (state, payload) => {
+      const result = {role: [], status: [], group: []}
+      result.role = payload.role;
+      result.status = payload.status;
+      result.group = payload.group;
+      state.filterBy = result;
+      // state is being reset here, this is probably not the best way to do it
+      // use spread operator to create a copy of state.filterBy and reset that way
+    }
   },
   actions: {
 
