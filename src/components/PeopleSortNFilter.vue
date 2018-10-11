@@ -28,6 +28,7 @@
       <br>
       <button type="submit">Apply Filter</button>
     </form>
+    <button @click="clearFilter">Clear Filter</button>
   </div>
 </template>
 
@@ -50,6 +51,7 @@ export default {
   methods: {
     ...mapMutations([
       'APPLY_FILTER',
+      'CLEAR_FILTER'
     ]),
     applyFilter: function () {
       const selectedFilters = {
@@ -58,6 +60,12 @@ export default {
         group: this._data.checkedGroup
       }
       this.APPLY_FILTER(selectedFilters)
+    },
+    clearFilter: function () {
+      this._data.checkedRoles = []
+      this._data.checkedStatus = []
+      this._data.checkedGroup = []
+      this.CLEAR_FILTER()
     }
   }
 }
