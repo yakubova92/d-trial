@@ -1,6 +1,5 @@
 <template>
   <div class="people-display">
-    <PeopleSortNFilter />
     <div class="card" v-for="person in filterPeople" v-bind:key="person.id">
       <div class="identity">
         <h3> Name </h3>
@@ -21,14 +20,14 @@
 </template>
 
 <script>
-import PeopleSortNFilter from '@/components/PeopleSortNFilter.vue'
+//import PeopleSortNFilter from '@/components/PeopleSortNFilter.vue'
 
 import { mapGetters } from 'vuex';
 
 export default {
   name: 'PeopleDisplay',
   components: {
-    PeopleSortNFilter
+    //PeopleSortNFilter
   },
   computed: {
     ...mapGetters([

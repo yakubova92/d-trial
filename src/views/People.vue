@@ -3,6 +3,7 @@
     <Header />
     <Navbar />
     <h1>This is a people page</h1>
+    <PeopleSortNFilter />
     <PeopleDisplay />
   </div>
 </template>
@@ -11,6 +12,7 @@
 // @ is an alias to /src
 import Header from '@/components/Header.vue'
 import Navbar from '@/components/Navbar.vue'
+import PeopleSortNFilter from '@/components/PeopleSortNFilter.vue'
 import PeopleDisplay from '@/components/PeopleDisplay.vue'
 
 export default {
@@ -18,6 +20,7 @@ export default {
   components: {
     Header,
     Navbar,
+    PeopleSortNFilter,
     PeopleDisplay
   }
 }

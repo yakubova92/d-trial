@@ -50,9 +50,14 @@ export default new Vuex.Store({
       result.role = payload.role;
       result.status = payload.status;
       result.group = payload.group;
-      state.filterBy = result;
-      // state is being reset here, this is probably not the best way to do it
-      // use spread operator to create a copy of state.filterBy and reset that way
+      state.filterBy = {...state.filterBy, ...result};
+    },
+    CLEAR_FILTER: (state) => {
+      state.filterBy = {
+        role: [],
+        status: [],
+        group: []
+      }
     }
   },
   actions: {
