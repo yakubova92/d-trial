@@ -62,6 +62,7 @@ p {
   display: flex;
   flex-direction: row;
   align-items: stretch;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 10px;
   margin-bottom: 10px;
