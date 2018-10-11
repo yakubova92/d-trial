@@ -1,5 +1,6 @@
 <template>
   <div class="people-display">
+    <h3> {{ totalPeople }} record(s) found </h3>
     <div class="card" v-for="person in filterPeople" v-bind:key="person.id">
       <div class="identity">
         <h3> Name </h3>
@@ -31,7 +32,8 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'filterPeople'
+      'filterPeople',
+      'totalPeople'
     ]),
   },
   methods: {

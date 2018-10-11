@@ -42,6 +42,10 @@ export default new Vuex.Store({
       }
       // add sorting logic here
       return people;
+    },
+    totalPeople: (state, getters) => {
+      const total = getters.filterPeople.length;
+      return total;
     }
   },
   mutations: {
