@@ -1,8 +1,5 @@
 <template>
   <div class="people-sort-filter">
-    <!-- <div>
-      {{ peopleFromJSON }}
-    </div> -->
     <form id='roles' @submit.prevent="applyFilter">
       <h4> Roles </h4>
       <input type="checkbox" id="administrator" value="Administrator" v-model="checkedRoles">
@@ -48,21 +45,6 @@ export default {
       peopleFromJSON: []
     }
   },
-  // created() {
-	// 	fetch('people.json')
-	// 	.then(res => res.json())
-	// 	.then(res => {
-	// 		this.peopleFromJSON = res;
-	// 		console.log('loaded');
-
-	// 		this.newPeople();
-
-	// 		setInterval(() => {
-	// 			this.newPeople();
-	// 		}, 6000);
-
-	// 	});
-	// },
   components: {
   },
   computed: {
@@ -85,13 +67,7 @@ export default {
       this._data.checkedStatus = []
       this._data.checkedGroup = []
       this.CLEAR_FILTER()
-    },
-    // newPeople() {
-    //   return this._data.peopleFromJSON
-		// 	// index = getRandomInt(0, this.quotes.length-1);
-		// 	// app.text = this.quotes[index];
-		// 	// app.loading='';
-		// }
+    }
   }
 }
 </script>

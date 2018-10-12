@@ -63,7 +63,7 @@ export default new Vuex.Store({
   actions: {
     loadCoins ({ commit }) {
       axios
-        .get('http://localhost:4000/people')
+        .get('http://localhost:4000/people')  //run this in terminal: json-server --watch src/data/db.json --port 4000
         .then(r => r.data)
         .then(people => {
         commit('SET_PEOPLE', people)
