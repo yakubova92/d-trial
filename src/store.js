@@ -25,6 +25,21 @@ export default new Vuex.Store({
   getters: {
     filterPeople: state => {
       let people = state.people;
+      let filterBy = state.filterBy;
+      let filterCategories = [];
+
+      if (filterBy.role.length) filterCategories.push('role')
+      if (filterBy.status.length) filterCategories.push('status')
+      if (filterBy.group.length) filterCategories.push('group')
+
+      console.log(filterCategories)
+
+      people.filter((person) => {
+        console.log('filterCats', filterCategories)
+        console.log('person', person)
+      })
+
+      ///////////////////////////////////
       if (state.filterBy.role.length){ // if roles were selected in the filter
         people = people.filter((person) => { // find people who match those roles
           if(state.filterBy.role.indexOf(person.role) !== -1) return person
