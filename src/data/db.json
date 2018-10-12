@@ -1,0 +1,139 @@
+{
+  "people": [
+    {
+      "id": 1,
+      "first": "Ned",
+      "last": "Stark",
+      "email": "nstark@gmail.com",
+      "role": "Administrator",
+      "status": "Pending",
+      "group": "Executives"
+    },
+    {
+      "id": 2,
+      "first": "Arya",
+      "last": "Stark",
+      "email": "astark@gmail.com",
+      "role": "Traveler",
+      "status": "Active",
+      "group": "Staff"
+    },
+    {
+      "id": 3,
+      "first": "Jon",
+      "last": "Snow",
+      "email": "jsnow@gmail.com",
+      "role": "Arranger",
+      "status": "Active",
+      "group": "Executives"
+    },
+    {
+      "id": 4,
+      "first": "Samwell",
+      "last": "Tarly",
+      "email": "starly@gmail.com",
+      "role": "Traveler",
+      "status": "Active",
+      "group": "Staff"
+    },
+    {
+      "id": 5,
+      "first": "Robert",
+      "last": "Baratheon",
+      "email": "rbaratheon@gmail.com",
+      "role": "Administrator",
+      "status": "Pending",
+      "group": "Executives"
+    },
+    {
+      "id": 6,
+      "first": "Dany",
+      "last": "Targaryen",
+      "email": "nstark@gmail.com",
+      "role": "Arranger",
+      "status": "Pending",
+      "group": "Executives"
+    },
+    {
+      "id": 7,
+      "first": "Khal",
+      "last": "Drogo",
+      "email": "kdrogo@gmail.com",
+      "role": "Administrator",
+      "status": "Pending",
+      "group": "Executives"
+    },
+    {
+      "id": 8,
+      "first": "Lord",
+      "last": "Varys",
+      "email": "lvarys@gmail.com",
+      "role": "Arranger",
+      "status": "Active",
+      "group": "Staff"
+    },
+    {
+      "id": 9,
+      "first": "Hot",
+      "last": "Pie",
+      "email": "hpie@gmail.com",
+      "role": "Traveler",
+      "status": "Active",
+      "group": "Staff"
+    },
+    {
+      "id": 10,
+      "first": "Edric",
+      "last": "Storm",
+      "email": "estorm@gmail.com",
+      "role": "Traveler",
+      "status": "Active",
+      "group": "Staff"
+    },
+    {
+      "id": 11,
+      "first": "Theon",
+      "last": "Greyjoy",
+      "email": "tgreyjoy@gmail.com",
+      "role": "Traveler",
+      "status": "Active",
+      "group": "Staff"
+    },
+    {
+      "id": 12,
+      "first": "Tyrion",
+      "last": "Lannister",
+      "email": "tlannister@gmail.com",
+      "role": "Arranger",
+      "status": "Active",
+      "group": "Staff"
+    },
+    {
+      "id": 13,
+      "first": "Robert",
+      "last": "Arryn",
+      "email": "rarryn@gmail.com",
+      "role": "Administrator",
+      "status": "Active",
+      "group": "Executives"
+    },
+    {
+      "id": 14,
+      "first": "Doran",
+      "last": "Martell",
+      "email": "dMartell@gmail.com",
+      "role": "Administrator",
+      "status": "Active",
+      "group": "Executives"
+    },
+    {
+      "id": 15,
+      "first": "Brianne",
+      "last": "Tarth",
+      "email": "btarth@gmail.com",
+      "role": "Traveler",
+      "status": "Active",
+      "group": "Staff"
+    }
+  ]
+}
