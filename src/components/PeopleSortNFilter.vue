@@ -41,7 +41,8 @@ export default {
     return {
       checkedRoles: [],
       checkedStatus: [],
-      checkedGroup: []
+      checkedGroup: [],
+      peopleFromJSON: []
     }
   },
   components: {

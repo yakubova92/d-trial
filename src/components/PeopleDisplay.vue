@@ -21,14 +21,15 @@
 </template>
 
 <script>
-//import PeopleSortNFilter from '@/components/PeopleSortNFilter.vue'
 
 import { mapGetters } from 'vuex';
 
 export default {
   name: 'PeopleDisplay',
   components: {
-    //PeopleSortNFilter
+  },
+  mounted () {
+    this.$store.dispatch('loadCoins')
   },
   computed: {
     ...mapGetters([

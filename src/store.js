@@ -1,20 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
+//import VueAxios from 'vue-axios'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    people: [
-      {id: 1, first: 'Ned', last: 'Stark', email: 'nstark@gmail.com', role: 'Arranger', status: 'Pending', group: 'Executives'},
-      {is: 2, first: 'Robert', last: 'Baratheon', email: 'rbaratheon@gmail.com', role: 'Administrator', status: 'Pending', group: 'Executives'},
-      {id: 3, first: 'Jon', last: 'Snow', email: 'jsnow@gmail.com', role: 'Traveler', status: 'Active', group: 'Executives'},
-      {id: 4, first: 'Dany', last: 'Targaryen', email: 'dtargaryen@gmail.com', role: 'Administrator', status: 'Active', group: 'Executives'},
-      {id: 5, first: 'Tyrion', last: 'Lannister', email: 'tlannister@gmail.com', role: 'Arranger', status: 'Active', group: 'Executives'},
-      {id: 6, first: 'Arya', last: 'Stark', email: 'astark@gmail.com', role: 'Traveler', status: 'Active', group: 'Staff'},
-      {id: 7, first: 'Theon', last: 'Greyjoy', email: 'jdoe@gmail.com', role: 'Traveler', status: 'Active', group: 'Staff'},
-      {id: 8, first: 'Khal', last: 'Drogo', email: 'kdrogo@gmail.com', role: 'Administrator', status: 'Active', group: 'Executives'},
-    ],
+    people: [],
     sortBy: '',
     filterBy: {
       role: [],
@@ -24,22 +17,7 @@ export default new Vuex.Store({
   },
   getters: {
     filterPeople: state => {
-      let people = state.people;
-      let filterBy = state.filterBy;
-      let filterCategories = [];
-
-      if (filterBy.role.length) filterCategories.push('role')
-      if (filterBy.status.length) filterCategories.push('status')
-      if (filterBy.group.length) filterCategories.push('group')
-
-      console.log(filterCategories)
-
-      people.filter((person) => {
-        console.log('filterCats', filterCategories)
-        console.log('person', person)
-      })
-
-      ///////////////////////////////////
+      let people = state.people
       if (state.filterBy.role.length){ // if roles were selected in the filter
         people = people.filter((person) => { // find people who match those roles
           if(state.filterBy.role.indexOf(person.role) !== -1) return person
@@ -64,6 +42,9 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    SET_PEOPLE (state, people) {
+      state.people = people
+    },
     APPLY_FILTER: (state, payload) => {
       const result = {role: [], status: [], group: []}
       result.role = payload.role;
@@ -80,6 +61,13 @@ export default new Vuex.Store({
     }
   },
   actions: {
-
+    loadCoins ({ commit }) {
+      axios
+        .get('http://localhost:4000/people')  //run this in terminal: json-server --watch src/data/db.json --port 4000
+        .then(r => r.data)
+        .then(people => {
+        commit('SET_PEOPLE', people)
+        })
+    }
   }
 })
