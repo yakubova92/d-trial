@@ -2,7 +2,8 @@
   <div class="people">
     <Header />
     <Navbar />
-    <h1>This is a people page</h1>
+    <h1>People</h1>
+    <router-link to="/groups">Groups</router-link> |
     <PeopleSortNFilter />
     <PeopleDisplay />
   </div>

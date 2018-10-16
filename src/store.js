@@ -8,6 +8,12 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     people: [],
+    groups: [
+      {id: 1, name: 'Royalty', description: 'those who have ruled Westeros', members: 5, policy: 'first class'},
+      {id: 2, name: 'Lords and Ladies', description: 'those of high birth', members: 6, policy: 'business class'},
+      {id: 3, name: 'The Nights Watch', description: 'the watchers on the wall', members: 4, policy: 'coach'},
+      {id: 4, name: 'Peasants', description: 'the lowborn', members: 3, policy: 'cargo'}
+    ],
     sortBy: '',
     filterBy: {
       role: [],
@@ -36,9 +42,17 @@ export default new Vuex.Store({
       // add sorting logic here
       return people;
     },
+    groups: state => {
+      console.log('hit getGroups in store')
+      console.log(state.groups)
+      return state.groups
+    },
     totalPeople: (state, getters) => {
       const total = getters.filterPeople.length;
       return total;
+    },
+    totalGroups: state => {
+      return state.groups.length
     }
   },
   mutations: {

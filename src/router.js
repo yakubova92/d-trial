@@ -23,6 +23,16 @@ export default new Router({
       component: () => import(/* webpackChunkName: "about" */ './views/Flightboard.vue')
     },
     {
+      path: '/groups',
+      name: 'groups',
+      component: () => import('./views/Groups.vue')
+    },
+    {
+      path: '/payment-options',
+      name: 'payment-options',
+      component: () => import('./views/PaymentOptions.vue')
+    },
+    {
       path: '/people',
       name: 'people',
       component: () => import('./views/People.vue')
@@ -31,11 +41,6 @@ export default new Router({
       path: '/policy',
       name: 'policy',
       component: () => import('./views/Policy.vue')
-    },
-    {
-      path: '/payment-options',
-      name: 'payment-options',
-      component: () => import('./views/PaymentOptions.vue')
     },
     {
       path: '/reporting',
