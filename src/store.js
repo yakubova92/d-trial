@@ -24,6 +24,8 @@ export default new Vuex.Store({
   getters: {
     filterPeople: state => {
       let people = state.people
+      const sortBy = state.sortBy
+
       if (state.filterBy.role.length){ // if roles were selected in the filter
         people = people.filter((person) => { // find people who match those roles
           if(state.filterBy.role.indexOf(person.role) !== -1) return person
@@ -40,6 +42,50 @@ export default new Vuex.Store({
         })
       }
       // add sorting logic here
+      people = people.sort(function (a, b){
+        let A;
+        let B;
+        switch (sortBy) {
+          case 'first name A-Z':
+            A = a.first.toUpperCase();
+            B = b.first.toUpperCase();
+            if (A < B) return -1;
+            if (A > B) return 1;
+            return 0;
+          case 'first name Z-A':
+            A = a.first.toUpperCase();
+            B = b.first.toUpperCase();
+            if (A > B) return -1;
+            if (A < B) return 1;
+            return 0;
+          case 'last name A-Z':
+            A = a.last.toUpperCase();
+            B = b.last.toUpperCase();
+            if (A < B) return -1;
+            if (A > B) return 1;
+            return 0;
+          case 'last name Z-A':
+            A = a.last.toUpperCase();
+            B = b.last.toUpperCase();
+            if (A > B) return -1;
+            if (A < B) return 1;
+            return 0;
+          case 'email A-Z':
+            A = a.email.toUpperCase();
+            B = b.email.toUpperCase();
+            if (A < B) return -1;
+            if (A > B) return 1;
+            return 0;
+          case 'email Z-A':
+            A = a.email.toUpperCase();
+            B = b.email.toUpperCase();
+            if (A > B) return -1;
+            if (A < B) return 1;
+            return 0;
+          default:
+            break;
+        }
+      })
       return people;
     },
     groups: state => {
@@ -61,10 +107,12 @@ export default new Vuex.Store({
     },
     APPLY_FILTER: (state, payload) => {
       const result = {role: [], status: [], group: []}
-      result.role = payload.role;
-      result.status = payload.status;
-      result.group = payload.group;
+      result.role = payload.selectedFilters.role;
+      result.status = payload.selectedFilters.status;
+      result.group = payload.selectedFilters.group;
       state.filterBy = {...state.filterBy, ...result};
+      state.sortBy = payload.selectedSort
+      console.log('state.sortBy', state.sortBy)
     },
     CLEAR_FILTER: (state) => {
       state.filterBy = {
