@@ -1,6 +1,24 @@
 <template>
   <div class="people-sort-filter">
     <form id='roles' @submit.prevent="applyFilter">
+      <h3> Sort </h3>
+      <input type="radio" id="first-az" value="first name A-Z" v-model="sortSelection">
+      <label for="fist-az">first name A-Z</label>
+      <input type="radio" id="first-za" value="first name Z-A" v-model="sortSelection">
+      <label for="first-za">first name Z-A</label>
+      <br>
+      <input type="radio" id="last-az" value="last name A-Z" v-model="sortSelection">
+      <label for="last-az">last name A-Z</label>
+      <input type="radio" id="last-za" value="last name Z-A" v-model="sortSelection">
+      <label for="last-za">last name Z-A</label>
+      <br>
+      <input type="radio" id="email" value="email A-Z" v-model="sortSelection">
+      <label for="email-az">email A-Z</label>
+      <input type="radio" id="email-za" value="email Z-A" v-model="sortSelection">
+      <label for="email-za">email Z-A</label>
+      <br>
+
+      <h3> Filter </h3>
       <h4> Roles </h4>
       <input type="checkbox" id="administrator" value="Administrator" v-model="checkedRoles">
       <label for="administrator">Administrator</label>
@@ -24,7 +42,8 @@
       <label for="staff">Staff</label>
       <br>
       <h4> You have selected: </h4>
-      <span>Roles: {{ checkedRoles }} | Status: {{ checkedStatus }} | Group {{ checkedGroup }}</span>
+      <div>Sort: {{ sortSelection }} </div>
+      <div>Roles: {{ checkedRoles }} | Status: {{ checkedStatus }} | Group {{ checkedGroup }}</div>
       <br>
       <button type="submit">Apply Filter</button>
     </form>
@@ -39,6 +58,7 @@ export default {
   name: 'PeopleSortNFilter',
   data() {
     return {
+      sortSelection: '',
       checkedRoles: [],
       checkedStatus: [],
       checkedGroup: [],
@@ -55,12 +75,14 @@ export default {
       'CLEAR_FILTER'
     ]),
     applyFilter: function () {
+      const selectedSort = this._data.sortSelection
       const selectedFilters = {
         role: this._data.checkedRoles,
         status: this._data.checkedStatus,
         group: this._data.checkedGroup
       }
-      this.APPLY_FILTER(selectedFilters)
+      const filterInfo = {selectedSort, selectedFilters}
+      this.APPLY_FILTER(filterInfo)
     },
     clearFilter: function () {
       this._data.checkedRoles = []
