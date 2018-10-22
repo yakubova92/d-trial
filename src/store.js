@@ -19,9 +19,21 @@ export default new Vuex.Store({
       role: [],
       status: [],
       group: []
-    }
+    },
+    todos: [
+      {id: 1, text: 'learn slots', complete: false},
+      {id: 2, text: 'practice slots', complete: true},
+      {id: 3, text: 'apply to delta', complete: false},
+      {id: 4, text: 'make it work in the store', complete: true}
+    ]
   },
   getters: {
+    todos: state => {
+      return state.todos;
+    },
+    totalTodos: state => {
+      return state.todos.length;
+    },
     filterPeople: state => {
       let people = state.people
       const sortBy = state.sortBy
