@@ -85,6 +85,7 @@ export default {
       this.APPLY_FILTER(filterInfo)
     },
     clearFilter: function () {
+      this._data.sortSelection = '';
       this._data.checkedRoles = []
       this._data.checkedStatus = []
       this._data.checkedGroup = []
@@ -96,10 +97,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+h4 {
+  margin: 10px;
+}
 p {
   font-weight: bold;
-}
-.people-sort-filter {
-  border: 2px solid black;
 }
 </style>
