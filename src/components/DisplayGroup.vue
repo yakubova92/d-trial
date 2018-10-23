@@ -1,35 +1,44 @@
 <template>
-  <div class="group-card">
-    <div class="col-1">
-      <h3> Group name </h3>
-      <p>{{ group.name }} </p>
-      <p>{{ group.description }} </p>
-    </div>
-    <div class="col-2">
-      <h3> Members </h3>
-      <p>{{ group.members }} </p>
-    </div>
-    <div class="col-3">
-      <h3> Policy </h3>
-      <p>{{ group.policy }} </p>
+  <div>
+    {{totalGroups}} records found!
+    <br>
+    <div v-for="group in groups" :key="group.id" class="card">
+      <slot :group="group">
+        <!-- default text -->
+        <div class="col-1">
+          <h3>Group name</h3>
+          <p>{{group.name}}</p>
+          <p>{{group.description}}</p>
+        </div>
+        <div class="col-2">
+          <h3>Members</h3>
+          <p>{{group.members}}</p>
+        </div>
+        <div class="col-3">
+          <h3>Policy</h3>
+          <p>{{group.policy}}</p>
+        </div>
+      </slot>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
-  name: 'group-card',
-  props: ["group"],
+  name: 'DisplayGroup',
   components: {
   },
   computed: {
+    ...mapGetters([
+      'groups',
+      'totalGroups'
+    ]),
   },
-  methods: {
-  }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 h3 {
   margin: 0px 0 0;
@@ -37,7 +46,7 @@ h3 {
 p {
   margin: 0px
 }
-.group-card {
+.card {
   display: flex;
   flex-direction: row;
   align-items: stretch;

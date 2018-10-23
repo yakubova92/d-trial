@@ -4,7 +4,10 @@
     <Navbar />
     <h1>People</h1>
     <router-link to="/groups">Groups</router-link> |
-    <PeopleDisplay />
+    <!-- <PeopleDisplay /> -->
+    <display-people :filterPeople="filterPeople">
+      <template slot-scope="{ person }" class="card"></template>
+    </display-people>
   </div>
 </template>
 
@@ -12,14 +15,16 @@
 // @ is an alias to /src
 import Header from '@/components/Header.vue'
 import Navbar from '@/components/Navbar.vue'
-import PeopleDisplay from '@/components/PeopleDisplay.vue'
+import DisplayPeople from '@/components/DisplayPeople.vue'
+// import PeopleDisplay from '@/components/PeopleDisplay.vue'
 
 export default {
   name: 'home',
   components: {
     Header,
     Navbar,
-    PeopleDisplay
+    DisplayPeople
+    // PeopleDisplay
   }
 }
 </script>

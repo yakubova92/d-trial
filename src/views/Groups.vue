@@ -3,9 +3,9 @@
     <Header />
     <Navbar />
     <h1>Groups</h1>
-    <card-group :groups="groups">
+    <display-group :groups="groups">
       <template slot-scope="{ group }" class="card"></template>
-    </card-group>
+    </display-group>
   </div>
 </template>
 
@@ -13,14 +13,15 @@
 // @ is an alias to /src
 import Header from '@/components/Header.vue'
 import Navbar from '@/components/Navbar.vue'
-import CardGroup from '@/components/CardGroup.vue'
+import DisplayGroup from '@/components/DisplayGroup.vue'
 
 export default {
   name: 'home',
   components: {
     Header,
     Navbar,
-    CardGroup
+    DisplayGroup
   }
 }
 </script>
+
